@@ -4,7 +4,7 @@ var session = require("express-session");
 var passport = require("passport");
 var morgan = require("morgan");
 var path = require("path");
-
+var config = require('./config');
 
 var app = express();
 
@@ -21,13 +21,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(session({secret:"Park A Buick",resave:false,saveUninitialized:true}));
 
 
-app.listen(3000,function(err){
+app.listen(config.PORT,function(err){
 
     if(err)
     {
         console.log(err);
     }else{
 
-        console.log("Server Listening On Port 3000");
+        console.log("Server Listening On Port " + config.PORT);
     }
 });
