@@ -1,9 +1,9 @@
 {
-  "name": "chord progressions",
+  "name": "chordprogressions",
   "version": "1.0.0",
   "description": "Chord Progression Datastore for piano songs",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc && concurrently \"tsc -w\" \"nodemon app.js\" ",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
     "pree2e": "npm run webdriver:update",
