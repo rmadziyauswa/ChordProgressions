@@ -1,4 +1,5 @@
 import { Component,OnInit,OnDestroy } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import { Router,ActivatedRoute } from '@angular/router';
 import { Song } from './song.model';
 import { SongService } from './song-service.service';
@@ -15,6 +16,8 @@ export class EditSongComponent {
     songId:string;
     song:Song;
     sub:any;
+    _progression:string;
+    keys:string[];
 
     constructor(private route:ActivatedRoute,private songService:SongService,private router:Router)
     {
@@ -23,6 +26,9 @@ export class EditSongComponent {
 
     ngOnInit()
     {
+        this.keys = this.songService.getAllKeys();
+        this.song = new Song("0","","",[]);
+
         this.sub = this.route.params.subscribe(params =>{
             if(params['id'])
             {
@@ -34,6 +40,25 @@ export class EditSongComponent {
     ngOnDestroy()
     {
         this.sub.unsubscribe;
+    }
+
+
+    onSubmit(songForm:any)
+    {
+        console.log(songForm);
+        if(this.songId)
+        {
+            //its an edit
+            console.log("Edit??");
+
+        }else{
+            //its a new song
+            
+            this.song.progression = this._progression.split(",");
+
+            this.songService.addSong(this.song).then(res=> this.router.navigate(['/list'])).catch(err=>console.log(err));
+
+        }
     }
 
 }
