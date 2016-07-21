@@ -1,0 +1,13 @@
+<header>
+    <h2>Song</h2>
+</header>
+<article *ngIf="song">
+    <h4>Name : {{ song.name }}</h4>
+    <h4>Key : {{ song.key }}</h4>
+    <pre>{{ song.progression }}</pre>
+
+    <div class="row">
+        <button class="btn btn-warning">Edit</button>
+        <button class="btn btn-danger" (click)="onDelete(song._id)">Delete</button>
+    </div>
+</article>

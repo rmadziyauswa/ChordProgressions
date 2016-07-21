@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
+import { SearchListComponent } from './search-list.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>Chord Progressions</h1>'
+    templateUrl: 'app/templates/app.component.html',
+    styleUrls: ['app/css/app.component.css'],
+    directives:[HeaderComponent,FooterComponent,SearchListComponent,ROUTER_DIRECTIVES]
 })
-export class AppComponent { }
+export class AppComponent { 
+
+}
