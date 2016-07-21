@@ -1,5 +1,5 @@
 import { Component,OnInit,OnDestroy } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute,ROUTER_DIRECTIVES } from '@angular/router';
 import { Song } from './song.model';
 import { SongService } from './song-service.service';
 
@@ -8,7 +8,8 @@ import { SongService } from './song-service.service';
     selector: 'view-song',
     templateUrl: 'templates/view-song.component.html',
     styleUrls:['css/view-song.component.css'],
-    providers:[SongService]
+    providers:[SongService],
+    directives:[ROUTER_DIRECTIVES]
     
 })
 export class ViewSongComponent implements OnInit,OnDestroy {

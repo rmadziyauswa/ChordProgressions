@@ -11,7 +11,24 @@
 
         <div class="row">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let song of songs"><a href="#" [routerLink]="['/song',song._id ]">{{ song.name }}     <span class="badge">{{ song.key }}</span></a></li>
+                <li class="list-group-item" *ngFor="let song of songs">
+                    <div class="row">
+                        <div class="col-xs-7">
+                             <a [routerLink]="['/song',song._id ]">{{ song.name }}</a>
+                   	    </div>
+                        
+                        <div class="col-xs-2">
+                                <a [routerLink]="['/song',song._id ]">
+                                    <span class="badge">{{ song.key }}</span>
+                                </a>
+                         </div>
+
+                    <div class="col-xs-3">
+                         <span class="glyphicon glyphicon-trash" (click)="onDelete(song._id)"></span>
+                    </div>
+
+                    </div>
+                </li>
                 
             </ul>
 

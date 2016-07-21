@@ -1,16 +1,10 @@
-<header>
-    <h3 *ngIf="songId">Edit Song</h3>
-    <h3 *ngIf="!(songId)">Add Song</h3>
-</header>
 <article>
         
         <form action="" method="POST" role="form" #songForm="ngForm" (ngSubmit)="onSubmit(songForm)">
-            <legend>Save Song</legend>
-            <pre>
-                {{song.name}}
-                {{song.key}}
-                {{_progression}}
-            </pre>            
+            
+            <legend *ngIf="songId">Edit Song</legend>
+            <legend *ngIf="!(songId)">Add Song</legend> 
+                      
             <div class="form-group">
                 <input type="text" class="form-control" id="" placeholder="Song Name" required name="name" [(ngModel)]="song.name">
             </div>

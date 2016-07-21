@@ -33,6 +33,12 @@ export class EditSongComponent {
             if(params['id'])
             {
                 this.songId = params['id'];
+                this.songService.getSong(this.songId).then(song=>{
+                    this.song=song;
+                    this._progression = song.progression.toString();
+
+                }).catch(err=>console.log(err));
+
             }
         });
     }
@@ -45,16 +51,17 @@ export class EditSongComponent {
 
     onSubmit(songForm:any)
     {
-        console.log(songForm);
+        
+            this.song.progression = this._progression.split(",");
+
         if(this.songId)
         {
             //its an edit
-            console.log("Edit??");
+            
+            this.songService.editSong(this.song).then(res=> this.router.navigate(['/list'])).catch(err=>console.log(err));
 
         }else{
-            //its a new song
-            
-            this.song.progression = this._progression.split(",");
+            //its a new song       
 
             this.songService.addSong(this.song).then(res=> this.router.navigate(['/list'])).catch(err=>console.log(err));
 

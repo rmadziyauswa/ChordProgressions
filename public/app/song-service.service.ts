@@ -51,4 +51,14 @@ export class SongService {
         return this.http.post(this.songUrl,JSON.stringify(song),{headers}).toPromise().then(result => result.json() as Song).catch(err=>console.log(err));
     }
 
+
+    
+    editSong(song:Song)
+    {
+        let headers = new Headers();
+        headers.append("Content-Type","application/json");
+        
+        return this.http.post(this.songUrl + song._id,JSON.stringify(song),{headers}).toPromise().then(result => result.json() as Song).catch(err=>console.log(err));
+    }
+
 }

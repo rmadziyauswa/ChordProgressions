@@ -14,10 +14,22 @@ import { SongService } from './song-service.service';
 export class SearchListComponent {
     songs:Song[];
 
-    constructor(songService:SongService)
+    constructor(private songService:SongService)
     {
-        songService.getAllSongs().then(result => this.songs = result).catch(err => console.log(err));
+        this.songService.getAllSongs().then(result => this.songs = result).catch(err => console.log(err));
 
     }
     
+    onDelete(songId:string)
+    {
+        
+        this.songService.deleteSong(songId).then(result => {
+            this.songs.forEach((song,index)=>{
+                if(song._id===songId)
+                {
+                    this.songs.splice(index,1);
+                }
+            });
+        }).catch(err => console.log(err));
+    }
 }
