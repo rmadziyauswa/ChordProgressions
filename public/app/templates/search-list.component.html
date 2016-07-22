@@ -1,9 +1,12 @@
 <article>
         <div class="row">
         <form class="form-horizontal">
-            <div class="form-group">
-                <div class="col-md-12">
-                    <input type="search" placeholder="Search" class="form-control" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <input type="search" placeholder="Search" class="form-control" [(ngModel)]="query" name="search" />
+                        <span class="input-group-addon" (click)="clearQuery()">X</span>
+                    </div>
                 </div>
             </div>
         </form>
@@ -11,10 +14,10 @@
 
         <div class="row">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let song of songs">
+                <li class="list-group-item" *ngFor="let song of (songs|searchsongs:query)">
                     <div class="row">
                         <div class="col-xs-7">
-                             <a [routerLink]="['/song',song._id ]">{{ song.name }}</a>
+                             <a [routerLink]="['/song',song._id ]">{{ song.name | uppercase}}</a>
                    	    </div>
                         
                         <div class="col-xs-2">
