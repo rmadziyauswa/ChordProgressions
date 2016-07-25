@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES,Route } from '@angular/router';
 import { Song } from './song.model';
+import { SearchPipe } from './search.pipe';
 import { SongService } from './song-service.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { SongService } from './song-service.service';
     templateUrl: 'templates/search-list.component.html',
     styleUrls:['css/search-list.component.css'],
     providers:[SongService],
-    directives:[ROUTER_DIRECTIVES]
+    directives:[ROUTER_DIRECTIVES],
+    pipes:[SearchPipe]
 })
 export class SearchListComponent {
     songs:Song[];
+    query:string;
 
     constructor(private songService:SongService)
     {
@@ -31,5 +34,10 @@ export class SearchListComponent {
                 }
             });
         }).catch(err => console.log(err));
+    }
+
+    clearQuery()
+    {
+        this.query = "";
     }
 }

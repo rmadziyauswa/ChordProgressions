@@ -9,6 +9,7 @@ var router = express.Router();
 mongoose.connect(config.DB,function(err){
     if(err)
     {
+        console.log("Config DB", config.DB);
         console.log("MongoDB Connection error",err);
     }else{
         console.log("MongoDB Connection Successfull");

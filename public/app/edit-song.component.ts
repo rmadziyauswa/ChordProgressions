@@ -63,7 +63,7 @@ export class EditSongComponent {
         }else{
             //its a new song       
 
-            this.songService.addSong(this.song).then(res=> this.router.navigate(['/list'])).catch(err=>console.log(err));
+            this.songService.addSong(this.song).then(res=> this.router.navigate(['/song',res._id])).catch(err=>console.log(err));
 
         }
     }

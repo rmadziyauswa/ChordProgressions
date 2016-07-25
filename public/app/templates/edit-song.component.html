@@ -2,8 +2,8 @@
         
         <form action="" method="POST" role="form" #songForm="ngForm" (ngSubmit)="onSubmit(songForm)">
             
-            <legend *ngIf="songId">Edit Song</legend>
-            <legend *ngIf="!(songId)">Add Song</legend> 
+            <legend *ngIf="songId">Edit </legend>
+            <legend *ngIf="!(songId)">Add </legend> 
                       
             <div class="form-group">
                 <input type="text" class="form-control" id="" placeholder="Song Name" required name="name" [(ngModel)]="song.name">
@@ -12,7 +12,7 @@
             
             <div class="form-group">
                 <select name="key" id="key" class="form-control" [(ngModel)]="song.key">
-                    <option value="" selected>Select Song Key</option>
+                    <option value="" selected>Select Key</option>
                     <option *ngFor="let key of keys" value="{{key}}">{{key}}</option>
                 </select>
             </div>
