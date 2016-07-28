@@ -38,3 +38,12 @@ article pre
 {
     color: red;
 }
+
+
+span.text-danger
+{
+       font-size: 0.8em;
+    margin-bottom: 20px;
+    display: block;
+
+}

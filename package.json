@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "Chord Progression Datastore for piano songs",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "concurrently \"mongod\" \"nodemon app.js\"  \"start chrome http://localhost:3000\" "
   },
   "keywords": [],
   "author": "Ransome Madziyauswa",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "*",
+    "concurrently": "^2.2.0",
     "express": "*",
     "express-session": "*",
-    "body-parser": "*",
     "mongoose": "*",
     "morgan": "*",
     "passport": "*",

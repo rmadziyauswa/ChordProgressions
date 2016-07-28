@@ -27,7 +27,7 @@ export class EditSongComponent {
     ngOnInit()
     {
         this.keys = this.songService.getAllKeys();
-        this.song = new Song("0","","",[]);
+        this.song = new Song("0","","",[],new Date());
 
         this.sub = this.route.params.subscribe(params =>{
             if(params['id'])

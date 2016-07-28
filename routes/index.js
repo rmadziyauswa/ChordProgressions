@@ -76,6 +76,7 @@ router.post("/song",function(req,res){
     song.name = req.body.name;
     song.key = req.body.key;    
     song.progression = req.body.progression;
+    song.dateModified = new Date();
 
     song.save(function(err){
         if(err)
@@ -104,6 +105,7 @@ router.post("/song/:id",function(req,res){
             song.name = req.body.name;
             song.key = req.body.key;
             song.progression = req.body.progression;
+            song.dateModified = new Date();
                     
             song.save(function(err){
                 if(err)

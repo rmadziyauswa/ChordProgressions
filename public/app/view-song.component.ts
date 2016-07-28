@@ -28,8 +28,10 @@ export class ViewSongComponent implements OnInit,OnDestroy {
             if(params['id'])
             {
                 this.songId = params['id'];
-                this.songService.getSong(this.songId).then(result => this.song = result);
-
+                this.songService.getSong(this.songId).then(result => {
+                    this.song = result;  
+            });
+                
             }
         });
     }
