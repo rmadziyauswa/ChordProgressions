@@ -16,9 +16,4 @@ import { SongService } from './song-service.service';
 })
 export class AppComponent { 
 
-    constructor(private songService:SongService){
-        //synchronize the local db of songs with the online db
-        songService.syncSongs();
-
-    }
 }

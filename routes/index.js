@@ -6,7 +6,9 @@ var Song = require("../api/models/song");
 
 var router = express.Router();
 
-mongoose.connect(config.DB,function(err){
+var dbConnection = config.IsProd ? config.DBOnline : config.DB;
+
+mongoose.connect(dbConnection,function(err){
     if(err)
     {
         console.log("Config DB", config.DB);
