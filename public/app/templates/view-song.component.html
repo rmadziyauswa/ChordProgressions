@@ -12,9 +12,16 @@
     </span>
 
     <div class="row">
-        <div class="col-md-offset-4 col-md-4">
-        <a class="btn btn-warning" [routerLink]="['/edit',song._id]">Edit</a>
-        <button class="btn btn-danger" (click)="onDelete(song._id)">Delete</button>
+        <div class="button-holder">
+            <div class="row">
+                 <div class="col-xs-6">
+                         <a class="btn btn-warning" [routerLink]="['/edit',song._id]">Edit</a>
+                </div>
+
+                <div class="col-xs-6">
+                         <button class="btn btn-danger" (click)="onDelete(song._id)">Delete</button>
+                </div>
+        </div>
         </div>
     </div>
 </article>

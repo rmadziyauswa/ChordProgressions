@@ -47,3 +47,11 @@ span.text-danger
     display: block;
 
 }
+
+.button-holder
+{
+    max-width: 200px;
+    margin: 0 auto;
+    
+
+}
