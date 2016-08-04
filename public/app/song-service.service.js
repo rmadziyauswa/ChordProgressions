@@ -14,8 +14,8 @@ require("rxjs/add/operator/toPromise");
 var SongService = (function () {
     function SongService(http) {
         this.http = http;
-        this.songsUrl = "http://localhost:3000/api/songs";
-        this.songUrl = "http://localhost:3000/api/song/";
+        this.songsUrl = "/api/songs";
+        this.songUrl = "/api/song/";
         this.keys = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab"];
     }
     SongService.prototype.getAllKeys = function () {

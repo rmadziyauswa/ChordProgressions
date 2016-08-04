@@ -8,8 +8,8 @@ import "rxjs/add/operator/toPromise";
 export class SongService {
 
     songs:Song[];
-    songsUrl:string = "http://localhost:3000/api/songs";
-    songUrl:string = "http://localhost:3000/api/song/";
+    songsUrl:string = "/api/songs";
+    songUrl:string = "/api/song/";
     keys:string[] = ["A","Bb","B","C","C#","D","Eb","E","F","F#","G","Ab"];
 
     constructor(private http:Http) {      
